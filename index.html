@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0708">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Schaduwcrypte">
+  <meta name="description" content="Schaduwcrypte — een Diablo-achtige actie-RPG voor je telefoon.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <title>Schaduwcrypte</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" aria-label="Spelwereld"></canvas>
+
+    <div id="hud" hidden>
+      <div class="top-bar">
+        <div class="portrait" aria-hidden="true"><div class="level-badge" id="hud-level">1</div></div>
+        <div class="bars">
+          <div class="bar hp"><i id="hp-fill"></i><span id="hp-text">0/0</span></div>
+          <div class="bar mp"><i id="mp-fill"></i><span id="mp-text">0/0</span></div>
+          <div class="bar xp"><i id="xp-fill"></i></div>
+        </div>
+        <div class="meta">
+          <div id="hud-floor">Verdieping 1</div>
+          <div id="hud-gold">0</div>
+        </div>
+        <button id="btn-pause" class="icon-btn" type="button" aria-label="Pauze">☰</button>
+      </div>
+      <div id="toasts"></div>
+      <div id="loot-feed"></div>
+    </div>
+
+    <div id="controls" hidden>
+      <div id="joystick" aria-label="Beweging"><div id="joy-knob"></div></div>
+      <div id="action-cluster">
+        <button id="btn-hp" class="pot-btn" type="button" aria-label="Levensdrank">
+          <span class="pot-icon">✚</span><b id="hp-count">0</b>
+        </button>
+        <button id="btn-mp" class="pot-btn" type="button" aria-label="Manadrank">
+          <span class="pot-icon">✦</span><b id="mp-count">0</b>
+        </button>
+        <button id="btn-spell" type="button" aria-label="Spreuk Hellevuur">
+          <i id="spell-cd"></i><span>SPREUK</span>
+        </button>
+        <button id="btn-attack" type="button" aria-label="Aanval">AANVAL</button>
+      </div>
+    </div>
+
+    <div id="rotate-hint" hidden>
+      <div class="phone-icon" aria-hidden="true"></div>
+      <p>Draai je telefoon naar landscape</p>
+      <button id="btn-anyway" class="btn" type="button">Toch spelen</button>
+    </div>
+
+    <div id="title-screen" class="screen">
+      <h1>Schaduwcrypte</h1>
+      <div class="tag">Een actie-RPG</div>
+      <p class="blurb">De deuren van de crypte staan open. Daal af, hak monsters neer, raap loot op en kijk hoe diep je komt.</p>
+      <div class="btn-row">
+        <button id="btn-play" class="btn primary" type="button">Spelen</button>
+        <button id="btn-continue" class="btn" type="button" hidden>Verder</button>
+      </div>
+      <p class="controls-hint">
+        Telefoon: joystick links, aanval en spreuk rechts, drankjes daarboven. Tik op de grond om te lopen of op een vijand om aan te vallen.<br>
+        Toetsenbord: WASD of pijltjes, spatie = aanval, Q = spreuk, 1/2 = drankjes, Esc = pauze.
+      </p>
+    </div>
+
+    <div id="pause-screen" class="screen" hidden>
+      <div class="sheet">
+        <h2>Pauze</h2>
+        <div class="stats-grid" id="pause-stats"></div>
+        <div class="btn-row">
+          <button id="btn-resume" class="btn primary" type="button">Verder</button>
+          <button id="btn-restart" class="btn" type="button">Nieuw spel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="death-screen" class="screen" hidden>
+      <div class="sheet">
+        <h2>Je bent gevallen</h2>
+        <p id="death-summary" class="blurb"></p>
+        <div class="btn-row">
+          <button id="btn-again" class="btn primary" type="button">Opnieuw</button>
+          <button id="btn-title" class="btn" type="button">Titel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="install-banner" hidden>
+      <span id="install-text">Installeer Schaduwcrypte op je startscherm.</span>
+      <button id="btn-install" class="btn primary" type="button">Installeren</button>
+      <button id="btn-install-dismiss" class="btn" type="button">Later</button>
+    </div>
+  </div>
+  <script src="js/game.js"></script>
+</body>
+</html>
