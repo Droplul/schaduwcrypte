@@ -1,0 +1,26 @@
+{
+  "name": "schaduwcrypte",
+  "version": "1.1.0",
+  "description": "Diablo-achtige actie-RPG, gemaakt als installeerbare PWA voor Android (landscape, touch-eerst). Werkt ook in de browser met muis en toetsenbord.",
+  "main": "sw.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Droplul/schaduwcrypte.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Droplul/schaduwcrypte/issues"
+  },
+  "homepage": "https://github.com/Droplul/schaduwcrypte#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/cli": "^8.6.2",
+    "@capacitor/core": "^8.6.2"
+  }
+}

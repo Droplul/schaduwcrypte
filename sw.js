@@ -1,5 +1,5 @@
 /* Schaduwcrypte service worker */
-const VERSION = "schaduwcrypte-v3";
+const VERSION = "schaduwcrypte-v1.1.0";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -10,7 +10,10 @@ const PRECACHE = [
   "./icons/icon-512.png",
   "./icons/icon-192-maskable.png",
   "./icons/icon-512-maskable.png",
-  "./icons/apple-touch-icon.png"
+  "./icons/apple-touch-icon.png",
+  "./assets/heroes.png",
+  "./assets/monsters.png",
+  "./assets/tiles.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -43,6 +46,11 @@ self.addEventListener("fetch", (event) => {
           return res;
         })
         .catch(() => cached);
+      // network first for HTML/JS/CSS so updates arrive; cache first for assets
+      const dest = req.destination;
+      if (dest === "document" || dest === "script" || dest === "style") {
+        return fetched.then((res) => res || cached);
+      }
       return cached || fetched;
     })
   );

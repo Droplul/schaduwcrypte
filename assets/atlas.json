@@ -1,0 +1,82 @@
+{
+  "heroes": {
+    "frameW": 48,
+    "frameH": 64,
+    "cols": 22,
+    "anims": {
+      "idle": {
+        "col": 0,
+        "frames": 4
+      },
+      "walk": {
+        "col": 4,
+        "frames": 6
+      },
+      "attack": {
+        "col": 10,
+        "frames": 6
+      },
+      "death": {
+        "col": 16,
+        "frames": 6
+      }
+    },
+    "kinds": [
+      "warrior",
+      "mage",
+      "hunter"
+    ],
+    "dirs": [
+      "se",
+      "sw",
+      "nw",
+      "ne"
+    ]
+  },
+  "monsters": {
+    "frameW": 48,
+    "frameH": 64,
+    "cols": 22,
+    "anims": {
+      "idle": {
+        "col": 0,
+        "frames": 4
+      },
+      "walk": {
+        "col": 4,
+        "frames": 6
+      },
+      "attack": {
+        "col": 10,
+        "frames": 6
+      },
+      "death": {
+        "col": 16,
+        "frames": 6
+      }
+    },
+    "kinds": [
+      "rat",
+      "imp",
+      "skel",
+      "archer",
+      "brute",
+      "shaman",
+      "boss"
+    ],
+    "dirs": [
+      "se",
+      "sw",
+      "nw",
+      "ne"
+    ]
+  },
+  "tiles": {
+    "cellW": 64,
+    "cellH": 40,
+    "cols": 8,
+    "floors": 16
+  },
+  "FW": 48,
+  "FH": 64
+}

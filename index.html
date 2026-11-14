@@ -21,17 +21,32 @@
 
     <div id="hud" hidden>
       <div class="top-bar">
-        <div class="portrait" aria-hidden="true"><div class="level-badge" id="hud-level">1</div></div>
-        <div class="bars">
-          <div class="bar hp"><i id="hp-fill"></i><span id="hp-text">0/0</span></div>
-          <div class="bar mp"><i id="mp-fill"></i><span id="mp-text">0/0</span></div>
-          <div class="bar xp"><i id="xp-fill"></i></div>
+        <div class="vita">
+          <div class="orb orb-hp" aria-label="Leven">
+            <div class="orb-pool" id="hp-fill"><i class="wave"></i></div>
+            <div class="orb-shine"></div>
+            <span id="hp-text">0/0</span>
+          </div>
+          <div class="orb orb-mp" aria-label="Mana">
+            <div class="orb-pool" id="mp-fill"><i class="wave"></i></div>
+            <div class="orb-shine"></div>
+            <span id="mp-text">0/0</span>
+          </div>
+          <div class="vita-side">
+            <div class="level-badge" id="hud-level">1</div>
+            <div class="xp-track"><i id="xp-fill"></i></div>
+          </div>
         </div>
         <div class="meta">
           <div id="hud-floor">Verdieping 1</div>
           <div id="hud-gold">0</div>
+          <div id="hud-class"></div>
         </div>
-        <button id="btn-pause" class="icon-btn" type="button" aria-label="Pauze">☰</button>
+        <div class="top-actions">
+          <button id="btn-skills" class="icon-btn" type="button" aria-label="Vaardigheden">✧</button>
+          <button id="btn-mute" class="icon-btn" type="button" aria-label="Geluid">♪</button>
+          <button id="btn-pause" class="icon-btn" type="button" aria-label="Pauze">☰</button>
+        </div>
       </div>
       <div id="toasts"></div>
       <div id="loot-feed"></div>
@@ -46,8 +61,11 @@
         <button id="btn-mp" class="pot-btn" type="button" aria-label="Manadrank">
           <span class="pot-icon">✦</span><b id="mp-count">0</b>
         </button>
-        <button id="btn-spell" type="button" aria-label="Spreuk Hellevuur">
-          <i id="spell-cd"></i><span>SPREUK</span>
+        <button id="btn-skill2" type="button" hidden>
+          <i class="cd-overlay" id="skill2-cd"></i><span id="skill2-label">SKILL</span>
+        </button>
+        <button id="btn-spell" type="button" aria-label="Vaardigheid">
+          <i id="spell-cd" class="cd-overlay"></i><span id="spell-label">SPREUK</span>
         </button>
         <button id="btn-attack" type="button" aria-label="Aanval">AANVAL</button>
       </div>
@@ -62,16 +80,35 @@
     <div id="title-screen" class="screen">
       <h1>Schaduwcrypte</h1>
       <div class="tag">Een actie-RPG</div>
-      <p class="blurb">De deuren van de crypte staan open. Daal af, hak monsters neer, raap loot op en kijk hoe diep je komt.</p>
+      <p class="blurb">De deuren van de crypte staan open. Kies een klasse, daal af, hak monsters neer en kijk hoe diep je komt.</p>
       <div class="btn-row">
         <button id="btn-play" class="btn primary" type="button">Spelen</button>
         <button id="btn-continue" class="btn" type="button" hidden>Verder</button>
       </div>
       <p class="controls-hint">
-        Telefoon: joystick links, aanval en spreuk rechts, drankjes daarboven. Tik op de grond om te lopen of op een vijand om aan te vallen.<br>
-        Toetsenbord: WASD of pijltjes, spatie = aanval, Q = spreuk, 1/2 = drankjes, Esc = pauze.<br>
-        <a class="apk-link" href="downloads/schaduwcrypte-1.0.apk">Download de Android-APK</a>
+        Telefoon: joystick links, aanval en vaardigheid rechts, drankjes daarboven.<br>
+        Toetsenbord: WASD, spatie = aanval, Q / E = vaardigheden, 1/2 = drankjes, T = skill tree, M = geluid, Esc = pauze.<br>
+        <a class="apk-link" href="downloads/schaduwcrypte-1.1.apk">Download de Android-APK</a>
       </p>
+    </div>
+
+    <div id="class-screen" class="screen" hidden>
+      <h2>Kies je klasse</h2>
+      <div class="class-row" id="class-row"></div>
+      <div class="btn-row">
+        <button id="btn-class-back" class="btn" type="button">Terug</button>
+      </div>
+    </div>
+
+    <div id="skill-screen" class="screen" hidden>
+      <div class="sheet skill-sheet">
+        <h2>Vaardigheden</h2>
+        <p class="skill-points" id="skill-points"></p>
+        <div class="skill-grid" id="skill-grid"></div>
+        <div class="btn-row">
+          <button id="btn-skill-close" class="btn primary" type="button">Sluiten</button>
+        </div>
+      </div>
     </div>
 
     <div id="pause-screen" class="screen" hidden>
@@ -80,6 +117,7 @@
         <div class="stats-grid" id="pause-stats"></div>
         <div class="btn-row">
           <button id="btn-resume" class="btn primary" type="button">Verder</button>
+          <button id="btn-open-skills" class="btn" type="button">Vaardigheden</button>
           <button id="btn-restart" class="btn" type="button">Nieuw spel</button>
         </div>
       </div>

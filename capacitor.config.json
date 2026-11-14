@@ -1,0 +1,14 @@
+{
+  "appId": "nl.schaduwcrypte.app",
+  "appName": "Schaduwcrypte",
+  "webDir": "www",
+  "backgroundColor": "#0b0708",
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#0b0708",
+    "webContentsDebuggingEnabled": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

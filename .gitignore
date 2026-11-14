@@ -9,3 +9,6 @@ android/
 
 !downloads/
 !downloads/*.apk
+
+www/
+assets/_preview.png
