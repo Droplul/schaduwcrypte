@@ -1,5 +1,5 @@
 /* Schaduwcrypte service worker */
-const VERSION = "schaduwcrypte-v2";
+const VERSION = "schaduwcrypte-v3";
 const PRECACHE = [
   "./",
   "./index.html",

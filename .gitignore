@@ -5,3 +5,7 @@ android/
 *.aab
 *.idsig
 .DS_Store
+!.gitignore
+
+!downloads/
+!downloads/*.apk
